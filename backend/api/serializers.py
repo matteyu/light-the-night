@@ -13,9 +13,7 @@ class AccountSerializer(serializers.ModelSerializer):
             'username',
             'created_at',
             'updated_at',
-            'is_mentor',
-            'is_startup_owner',
-            'is_contractor',
+            'total_points',
             'password',
             'new_user'
             )

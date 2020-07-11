@@ -56,11 +56,7 @@ class AccountViewSet(viewsets.ModelViewSet):
         update_acct = {}
         if 'password' in self.request.data:
             update_acct['password'] = make_password(self.request.data['password'])
-        if 'is_mentor' in self.request.data:
-            update_acct['is_mentor'] = self.request.data['is_mentor']
-        if 'is_startup_owner' in self.request.data:
-            update_acct['is_startup_owner'] = self.request.data['is_startup_owner']
-        if 'is_contractor' in self.request.data:
-            update_acct['is_contractor'] = self.request.data['is_contractor']
+        if 'total_points' in self.request.data:
+            update_acct['total_points'] = self.request.data['total_points']
 
         serializer.save(**update_acct)

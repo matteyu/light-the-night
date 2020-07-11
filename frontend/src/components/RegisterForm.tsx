@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './style/RegisterForm.css';
 import { IonItem, IonLabel, IonInput, IonIcon, IonButton, IonCard, IonCardContent } from '@ionic/react';
-import { personSharp, lockClosedSharp, warning, mail } from 'ionicons/icons';
+import { personSharp, lockClosedSharp, warning } from 'ionicons/icons';
 import * as RegistrationAPI from '../api/register'
 
 
@@ -11,7 +11,6 @@ class RegisterForm extends Component{
     username: '',
     password: '',
     password2: '',
-    email: '',
     errorMessage: '',
   }
 
@@ -51,8 +50,7 @@ class RegisterForm extends Component{
       var res = await RegistrationAPI.register(
           this.state.username, 
           this.state.password,
-          this.state.password2,
-          this.state.email)
+          this.state.password2)
 
       next = res['next']
       window.location.replace(next)
@@ -90,13 +88,6 @@ class RegisterForm extends Component{
               <IonIcon icon={lockClosedSharp}></IonIcon>
             </IonLabel>
             <IonInput onIonChange={e => this.password2Input(e)} type="password" placeholder="Confirm Password"></IonInput>
-          </IonItem>
-
-          <IonItem id="emailfield">
-            <IonLabel position="fixed">
-              <IonIcon icon={mail}></IonIcon>
-            </IonLabel>
-            <IonInput onIonChange={e => this.emailInput(e)} type="text" placeholder="Email"></IonInput>
           </IonItem>
 
           <IonButton 

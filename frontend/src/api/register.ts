@@ -3,8 +3,7 @@ import API from 'axios';
 export async function register(
     username: string, 
     password: string, 
-    password2: string, 
-    email: string){
+    password2: string){
 
     const headers = {
         'Content-Type':'application/json'
@@ -12,7 +11,6 @@ export async function register(
     
     const data = {
         "username": username,
-        "email": email,
         "password": password,
         "password2": password2
     }

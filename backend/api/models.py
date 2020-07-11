@@ -33,9 +33,7 @@ class AccountManager(BaseUserManager):
 class Account(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=40, unique=True)
     # avatar = models.BinaryField(default=b'')
-    is_mentor = models.BooleanField(default=False)
-    is_startup_owner = models.BooleanField(default=False)
-    is_contractor = models.BooleanField(default=False)
+    total_points = models.IntegerField(default=0)
     is_active = models.BooleanField(default=True)
     new_user = models.BooleanField(default=True) # only logged in once
     created_at = models.DateTimeField(auto_now_add=True)
