@@ -11,7 +11,6 @@ class AccountSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'username',
-            'email',
             'created_at',
             'updated_at',
             'is_mentor',

@@ -35,6 +35,10 @@ class RegisterForm extends Component{
     this.setState({email: event.target.value})
   }
 
+  handleBack = () => {
+    window.location.replace('/login')
+  }
+
   handleRegistration = async() => {
     try{
       var next = '/login'
@@ -99,7 +103,17 @@ class RegisterForm extends Component{
             color="dark"
             onClick={
             () => this.handleRegistration()
-            }>Submit</IonButton>
+            }>
+              Submit
+          </IonButton>
+          <br />
+          <IonButton 
+            color="dark"
+            onClick={
+            () => this.handleBack()
+            }>
+              Go Back to Login
+          </IonButton>
 
           {
             this.state.errorMessage === ''?'':

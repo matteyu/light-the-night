@@ -14,7 +14,7 @@ export async function register(
         "username": username,
         "email": email,
         "password": password,
-        "password2": password
+        "password2": password2
     }
 
     const url = `http://${window.location.hostname}:8000/api/v1/accounts/`

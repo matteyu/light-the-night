@@ -54,8 +54,6 @@ class AccountViewSet(viewsets.ModelViewSet):
 
     def perform_update(self, serializer):
         update_acct = {}
-        if 'email' in self.request.data:
-            update_acct['email'] = self.request.data['email']
         if 'password' in self.request.data:
             update_acct['password'] = make_password(self.request.data['password'])
         if 'is_mentor' in self.request.data:

@@ -48,13 +48,13 @@ class LoginForm extends Component{
     return (
       
       <div className="container">
-        <span className="logoText">CHIPINO</span>
+        <span className="logoText">Light the Night</span>
         <br/>
-        <img 
+        {/* <img 
           alt="Mogul" 
           src="http://localhost:8000/static/images/mogul.png"
           className="logo"
-          />
+          /> */}
 
 
           <IonItem id="usernamefield">

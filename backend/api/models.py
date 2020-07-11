@@ -11,12 +11,7 @@ class AccountManager(BaseUserManager):
         if not password:
             raise ValueError('Users must have a valid password.')
 
-        if not kwargs.get('email'):
-            raise ValueError('Users must have a valid email.')
-
-        account = self.model(
-            username=username, email=self.normalize_email(kwargs.get('email'))
-        )
+        account = self.model(username=username)
 
         account.is_active = True
 
@@ -37,7 +32,6 @@ class AccountManager(BaseUserManager):
 
 class Account(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=40, unique=True)
-    email = models.EmailField()
     # avatar = models.BinaryField(default=b'')
     is_mentor = models.BooleanField(default=False)
     is_startup_owner = models.BooleanField(default=False)
@@ -50,7 +44,7 @@ class Account(AbstractBaseUser, PermissionsMixin):
     objects = AccountManager()
 
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['email', 'password']
+    REQUIRED_FIELDS = ['password']
 
     def __str__(self):
         return self.username
