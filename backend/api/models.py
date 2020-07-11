@@ -37,14 +37,13 @@ class AccountManager(BaseUserManager):
 
 class Account(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=40, unique=True)
-    email = models.EmailField()  # users can share email
-
+    email = models.EmailField()
+    # avatar = models.BinaryField(default=b'')
     is_mentor = models.BooleanField(default=False)
     is_startup_owner = models.BooleanField(default=False)
     is_contractor = models.BooleanField(default=False)
-
     is_active = models.BooleanField(default=True)
-
+    new_user = models.BooleanField(default=True) # only logged in once
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

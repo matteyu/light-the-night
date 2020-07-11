@@ -4,7 +4,7 @@ import LoginForm from '../components/LoginForm';
 import './style/Login.css';
 
 
-class Home extends Component {
+class Login extends Component {
 
   render() {
     return (
@@ -22,4 +22,4 @@ class Home extends Component {
 }
 
 
-export default Home;
+export default Login;

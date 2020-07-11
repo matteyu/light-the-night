@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './style/LoginForm.css';
-import { IonItem, IonLabel, IonInput, IonIcon, IonButton } from '@ionic/react';
-import { personSharp, lockClosedSharp } from 'ionicons/icons';
+import { IonItem, IonLabel, IonInput, IonIcon, IonButton, IonCard, IonCardContent } from '@ionic/react';
+import { personSharp, lockClosedSharp, warning } from 'ionicons/icons';
 import * as LoginAPI from '../api/login'
 import * as CommonAPI from '../api/common'
 
@@ -10,7 +10,12 @@ import * as CommonAPI from '../api/common'
 class LoginForm extends Component{
   state = {
     username: '',
-    password: ''
+    password: '',
+    errorMessage: '',
+  }
+
+  componentDidMount(){
+    this.setState({errorMessage: ''})
   }
 
   usernameInput = (event: any) =>{
@@ -22,19 +27,34 @@ class LoginForm extends Component{
   }
 
   handleLogin = async() => {
-    var res = await LoginAPI.login(this.state.username, this.state.password)
-    var data: any = await CommonAPI.redirectData('accounts', res.data.auth_token)
-    window.sessionStorage.setItem('data', JSON.stringify(data.data))
-    //console.log(JSON.parse(window.sessionStorage.getItem('data')||''))
-    window.location.replace("/dashboard")
+    try{
+      var next = '/login'
+      var res = await LoginAPI.login(this.state.username, this.state.password)
+      next = res['next']
+      var data: any = await CommonAPI.redirectData('accounts', res['data'].data.auth_token, 'get', {},`${this.state.username}/`)
+      window.sessionStorage.setItem('data', JSON.stringify(data.data))
+      window.sessionStorage.setItem('token', res['data'].data.auth_token)
+      window.location.replace(next)
+    } catch(error) {
+      this.setState({errorMessage: 'There was a problem with the login.'})
+    }
+  }
+
+  handleSignUp = () =>{
+    window.location.replace('/registration')
   }
 
   render() {
     return (
       
       <div className="container">
-        <strong>Chipino</strong>
-        <p>Mogul</p>
+        <span className="logoText">CHIPINO</span>
+        <br/>
+        <img 
+          alt="Mogul" 
+          src="http://localhost:8000/static/images/mogul.png"
+          className="logo"
+          />
 
 
           <IonItem id="usernamefield">
@@ -53,9 +73,28 @@ class LoginForm extends Component{
             <IonInput onIonChange={e => this.passwordInput(e)} type="password"></IonInput>
           </IonItem>
 
-          <IonButton onClick={
+          <IonButton 
+            color="dark"
+            onClick={
             () => this.handleLogin()
             }>Login</IonButton>
+          <br/>
+          <IonButton 
+            color="dark"
+            onClick={
+            () => this.handleSignUp()
+            }>Sign Up</IonButton>
+
+          {
+            this.state.errorMessage === ''?'':
+            <IonCard>
+              <IonCardContent className="error">
+              <IonIcon style={{fontSize: "20px"}} icon={warning}></IonIcon>
+                {this.state.errorMessage}
+              </IonCardContent>
+            </IonCard>
+          }
+          
       </div>
     )
   }

@@ -23,5 +23,8 @@ export async function redirectData(
     else if (method === 'get'){
         return await API.get(url, {headers})
     }
+    else if (method === 'put'){
+        return await API.put(url, data, {headers})
+    }
 
 }

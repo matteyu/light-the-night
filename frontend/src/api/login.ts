@@ -12,5 +12,18 @@ export async function login(username: string, password: string){
     
     const url = `http://${window.location.hostname}:8000/api/auth/token/login`
 
-    return await API.post(url, data, {headers})
+    var res = await API.post(url, data, {headers})
+    return {'data': res, 'next': '/dashboard'}
+}
+
+export async function getUser(username: string, token: string){
+    const headers = {
+        'Content-Type':'application/json',
+        'Authorization': `Token ${token}`
+    }
+    
+    const url = `http://${window.location.hostname}:8000/api/v1/accounts/${username}/`
+
+    var res = await API.get(url, {headers})
+    return {'data': res}
 }

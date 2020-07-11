@@ -143,6 +143,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, os.pardir, "backend/static")
+
 CORS_ORIGIN_ALLOW_ALL = True
 
 AUTH_USER_MODEL = 'api.Account'

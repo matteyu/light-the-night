@@ -3,7 +3,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 30%;
+  top: 45%;
   transform: translateY(-50%);
   margin-left: 20px;
   margin-right: 20px;
@@ -47,4 +47,29 @@
   margin-right: auto;
   border: groove;
   max-width: 411px;
+}
+
+.error {
+  max-height: 60px;
+  background-color: #fdabab;
+  color: black;
+}
+
+.logo{
+  width: 300px;
+  height: 300px;
+  margin-top: -30px;
+  margin-bottom: -90px;
+}
+
+.logoText{
+  font-size: 20px;
+  color: black;
+  letter-spacing: 15px;
+  font-weight:bold;
+  padding-left:15px;
+}
+
+ion-button {
+  margin-top: -1px !important;
 }

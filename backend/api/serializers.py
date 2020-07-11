@@ -18,6 +18,7 @@ class AccountSerializer(serializers.ModelSerializer):
             'is_startup_owner',
             'is_contractor',
             'password',
+            'new_user'
             )
 
         read_only_fields = ('created_at', 'updated_at', )
