@@ -1,0 +1,71 @@
+.fifthImg{
+    height:100%;
+    position:absolute;
+    width: 38%;
+    right: 0 !important;
+}
+
+.fifthImgSecond{
+    height:20%;
+    position:absolute;
+    width: 20%;
+    top: 30%;
+    right: 38% !important;
+}
+
+.headerBlurbfifth{
+    background-color: rgb(0, 74, 173);
+    color: rgb(246, 194, 47);
+    width: 35%;
+    left: 10%;
+    position: absolute;
+    top: 8%;
+    height: 13%;
+}
+
+.headerBlurbfifthList{
+    background-color: rgb(0, 74, 173);
+    color: rgb(246, 194, 47);
+    width: 35%;
+    left: 10%;
+    position: absolute;
+    top: 28%;
+    height: 60%;
+}
+
+.challengeHeaderFour{
+    padding-top: 20px;
+    margin-left: 20px;
+    color: rgb(246, 194, 47);
+    font-size: 60px;
+    font-weight: 700;
+}
+
+.challengeBlurbItemfifth{
+    background-color: rgb(244, 107, 19);
+    width: 30%;
+    right: 10%;
+    position: absolute;
+    right:0;
+    height: 90vh;
+}
+
+.leaderboard{
+    width: 50%;
+    margin: auto;
+    margin-top: 5%;
+}
+
+ion-item.headerBlurbfifth{
+    --background: rgb(0, 74, 173) !important;
+}
+
+ion-item.headerBlurbfifthList{
+    --background: rgb(0, 74, 173) !important;
+}
+
+ion-item.challengeBlurbItemfifth{
+    --background: rgb(244, 107, 19) !important;
+}
+
+

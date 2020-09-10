@@ -1,0 +1,65 @@
+.fourthImg{
+    height:100%;
+    position:absolute;
+    width: 38%;
+    right: 0 !important;
+}
+
+.fourthImgSecond{
+    height:20%;
+    position:absolute;
+    width: 20%;
+    top: 30%;
+    right: 38% !important;
+}
+
+.headerBlurbFourth{
+    background-color: rgb(0, 74, 173);
+    color: rgb(246, 194, 47);
+    width: 35%;
+    left: 10%;
+    position: absolute;
+    top: 8%;
+    height: 13%;
+}
+
+.headerBlurbFourthList{
+    background-color: rgb(0, 74, 173);
+    color: rgb(246, 194, 47);
+    width: 35%;
+    left: 10%;
+    position: absolute;
+    top: 28%;
+    height: 60%;
+}
+
+.challengeHeaderFour{
+    padding-top: 20px;
+    margin-left: 20px;
+    color: rgb(246, 194, 47);
+    font-size: 60px;
+    font-weight: 700;
+}
+
+.challengeBlurbItemFourth{
+    background-color: rgb(244, 107, 19);
+    width: 30%;
+    right: 10%;
+    position: absolute;
+    right:0;
+    height: 90vh;
+}
+
+ion-item.headerBlurbFourth{
+    --background: rgb(0, 74, 173) !important;
+}
+
+ion-item.headerBlurbFourthList{
+    --background: rgb(0, 74, 173) !important;
+}
+
+ion-item.challengeBlurbItemFourth{
+    --background: rgb(244, 107, 19) !important;
+}
+
+

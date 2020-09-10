@@ -1,7 +1,0 @@
-django==2.2.8
-djongo==1.2.38
-sqlparse==0.2.4
-djangorestframework
-django-cors-headers
-djoser
-drf-nested-routers

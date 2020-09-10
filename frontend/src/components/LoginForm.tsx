@@ -15,6 +15,9 @@ class LoginForm extends Component{
   }
 
   componentDidMount(){
+    window.sessionStorage.setItem('username', '')
+    window.sessionStorage.setItem('token', '')
+    window.sessionStorage.setItem('data', '')
     this.setState({errorMessage: ''})
   }
 
@@ -74,13 +77,13 @@ class LoginForm extends Component{
           </IonItem>
 
           <IonButton 
-            color="dark"
+            color="primary"
             onClick={
             () => this.handleLogin()
             }>Login</IonButton>
           <br/>
           <IonButton 
-            color="dark"
+            color="primary"
             onClick={
             () => this.handleSignUp()
             }>Sign Up</IonButton>

@@ -1,0 +1,20 @@
+.secondSlideBackground{
+    background-color: rgb(246, 194, 47);
+}
+
+.thirdSlideBackground{
+    background-color: rgb(8, 25, 44);
+}
+
+.fourthSlideBackground{
+    background-color: rgb(244, 107, 19);
+}
+
+.fifthSlideBackground{
+    background-image: url("/assets/fifthSection.jpg");
+    background-size: cover;
+}
+
+.sixthSlideBackground{
+    background-color: rgb(30, 21, 37);
+}

@@ -8,64 +8,81 @@ import * as CommonAPI from '../api/common'
 
 interface IProps{
     username?: string
-    email?: string
+    email?: string,
 }
 
 class Slides extends Component<IProps> {
+  handleSlideNext = () =>{
+    const slides: any = document.getElementById('slides')
+    slides.slideNext()
+  }
 
-    completeIntro = async() => {
-        await CommonAPI.redirectData(
-            'accounts', 
-            window.sessionStorage.getItem('token') || '', 
-            'put', 
-            {
-                'new_user': false,
-                'username': this.props.username,
-                'email': this.props.email
-            },
-            `${this.props.username}/`
-            )
+  handleSlidePrev = () =>{
+    const slides: any = document.getElementById('slides')
+    slides.slidePrev()
+  }
 
-        var data: any = await CommonAPI.redirectData(
-            'accounts', 
-            window.sessionStorage.getItem('token') || '', 
-            'get', 
-            {},
-            `${this.props.username}/`
-            )
-        window.sessionStorage.setItem('data', JSON.stringify(data.data))
-        window.location.replace('/dashboard')
-    }
+  completeIntro = async() => {
+      await CommonAPI.redirectData(
+        'accounts', 
+        window.sessionStorage.getItem('token') || '', 
+        'put', 
+        {
+            'new_user': false,
+            'username': this.props.username,
+            'email': this.props.email
+        },
+        `${this.props.username}/`
+      )
 
-    render() {
-        return (
-            <IonSlides 
-                pager={true} 
-                options={{
-                  initialSlide: 0,
-                  speed: 400}}>
-                <IonSlide>
-                  <h2>Thanks for joining the Chipino Mogul Family!</h2>
-                </IonSlide>
-                <IonSlide>
-                  <h1>Teach Business Owners!</h1>
-                  <img alt="mentor" src="http://localhost:8000/static/images/mentor.png" />
-                  <h2>Become a Mentor! Get paid to share knowledge with business owners!</h2>
-                </IonSlide>
-                <IonSlide>
-                  <h1>Be a Business Owner!</h1>
-                  <img alt="owner" src="http://localhost:8000/static/images/owner.png" />
-                  <h2>Bring your ideas to life or build on top of your current business to make it even better!</h2>
-                </IonSlide>
-                <IonSlide>
-                  <h1>Find Work in a Flash!</h1>
-                  <img alt="contractor" src="http://localhost:8000/static/images/contractor.png" />
-                  <h2>Become a Contractor and earn by helping the mentors and business owners bring companies to life!</h2>
-                  <IonButton onClick={() => this.completeIntro()} className="letsgo">Let's Start</IonButton>
-                </IonSlide>
-            </IonSlides>
-        )
-    }
+      var data: any = await CommonAPI.redirectData(
+          'accounts', 
+          window.sessionStorage.getItem('token') || '', 
+          'get', 
+          {},
+          `${this.props.username}/`
+          )
+      window.sessionStorage.setItem('data', JSON.stringify(data.data))
+      window.location.replace('/dashboard')
+  }
+
+  render() {
+    return(
+        <IonSlides 
+          id="slides"
+          pager={true} 
+          options={{
+            initialSlide: 0,
+            speed: 400}}
+          >
+          <IonSlide>
+            <h2>Welcome to the nth annual light the night!</h2>
+            <IonButton onClick={() => this.handleSlideNext()} className="letsgo">Next</IonButton>
+          </IonSlide>
+          <IonSlide>
+            <h1>First slide about light the night</h1>
+            <img alt="first" src="https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/reference_guide/cats_and_excessive_meowing_ref_guide/1800x1200_cats_and_excessive_meowing_ref_guide.jpg" />
+            <h2>Something about light the night!</h2>
+            <IonButton onClick={() => this.handleSlideNext()} className="letsgo">Next</IonButton>
+            <IonButton onClick={() => this.handleSlidePrev()} className="letsprev">Back</IonButton>
+          </IonSlide>
+          <IonSlide>
+            <h1>Second slide about light the night</h1>
+            <img alt="second" src="https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_weight_other/1800x1200_cat_weight_other.jpg?resize=600px:*" />
+            <h2>Something about light the night!</h2>
+            <IonButton onClick={() => this.handleSlideNext()} className="letsgo">Next</IonButton>
+            <IonButton onClick={() => this.handleSlidePrev()} className="letsprev">Back</IonButton>
+          </IonSlide>
+          <IonSlide>
+            <h1>Third slide about light the night!</h1>
+            <img alt="third" src="https://i.ytimg.com/vi/1Ne1hqOXKKI/maxresdefault.jpg" />
+            <h2>Something about light the night!</h2>
+            <IonButton onClick={() => this.completeIntro()} className="letsgo">Let's Start</IonButton>
+            <IonButton onClick={() => this.handleSlidePrev()} className="letsprev">Back</IonButton>
+          </IonSlide>
+        </IonSlides>
+      )
+  }
 }
 
 export default Slides;

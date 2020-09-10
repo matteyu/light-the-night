@@ -1,8 +1,4 @@
-ion-list{
-    min-height: 50vh;
-    border-radius: 5px !important;
-    border: 1px solid rgb(0, 0, 0);
-}
+
 
 ion-menu-button{
     position: absolute;
@@ -34,6 +30,13 @@ ion-card .list-md{
     bottom: 50px;
     margin-bottom: 0;
     right: 0;
+}
+
+.letsprev{
+  position: absolute;
+  bottom: 50px;
+  margin-bottom: 0;
+  left: 0;
 }
 
 .swiper-slide {

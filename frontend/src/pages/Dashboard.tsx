@@ -31,6 +31,9 @@ class Dashboard extends Component {
 
   componentDidMount(){
     var dataString = window.sessionStorage.getItem('data')
+    if(dataString === ""){
+      window.location.replace('/login')
+    }
     window.sessionStorage.setItem('username', JSON.parse(dataString||'')['username'])
     this.setState({redirectData: JSON.parse(dataString||'')})
     window.sessionStorage.removeItem('data')

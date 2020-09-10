@@ -10,7 +10,7 @@ import {
     IonNote,
   } from '@ionic/react';
   import React, { Component } from 'react'
-  import { walk, person, grid } from 'ionicons/icons';
+  import { walk, person, grid, people } from 'ionicons/icons';
   import './style/Menu.css';
   
   interface IProps {
@@ -38,6 +38,12 @@ import {
         mdIcon: person
     },
     {
+      title: 'Teams',
+      url: '/teams',
+      iosIcon: people,
+      mdIcon: people
+    },
+    {
         title: 'Logout',
         url: '/login',
         iosIcon: walk,
@@ -57,7 +63,7 @@ import {
         <IonMenu contentId="main" type="overlay">
           <IonContent>
             <IonList id="inbox-list" className="menulist">
-              <IonListHeader>Chipino Mogul</IonListHeader>
+              <IonListHeader>iA Light the Night</IonListHeader>
               <IonNote>{(this.props.userData as any)['username']}</IonNote>
               {appPages.map((appPage, index) => {
                 return (

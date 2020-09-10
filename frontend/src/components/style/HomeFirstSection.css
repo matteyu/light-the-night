@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.firstSectionMainSubText{
+    position: absolute;
+    font-size: 3vh;
+    font-weight: 300;
+    display: inline-block;
+    left: 12vw;
+    top:50%;
+    letter-spacing: 1px;
+    font-style: normal;
+    color: rgb(0, 74, 173);
+    line-height: 1.1;
+}
+
+.firstSectionMainText{
+    position: absolute;
+    font-size: 7vh;
+    font-weight: 500;
+    display: inline-block;
+    left: 6vw;
+    top:40%;
+    letter-spacing: -2px;
+    font-style: normal;
+    color: rgb(0, 74, 173);
+    line-height: 1.1;
+    font-stretch: ultra-condensed !important;
+}
+
+.firstSectionMainImage{
+    position: absolute;
+    right: 8vw;
+    height: 58vh;
+    display: inline-block;
+}
+
+.headerActions{
+    display: inline-block;
+    position: absolute;
+    top:50%;
+    right: 0;
+}
+
+.firstSectionHeaderActionsLogin{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3vh;
+    padding-right:30px;
+    color: rgb(0, 74, 173);
+}
+
+.firstSectionHeaderActionsChallenge{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3vh;
+    padding-right:30px;
+    color: rgb(0, 74, 173);
+}
+
+.firstSectionHeaderActionsLeaderboard{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3vh;
+    padding-right:30px;
+    color: rgb(0, 74, 173);
+}
+
+.firstSectionHeaderActionsInsta{
+    padding-right:30px;
+    width: 3vw;
+    height: 3vh;
+    color: rgb(0, 74, 173);
+}
+
+.firstSectionCardHeader{
+    padding-left: 0px;
+    text-align: left;
+}
+
+.firstSectionLightTheNightLogo{
+    width: 22vw;
+    height: 12vh;
+    display: inline-block;
+}
+
+.transitionButton{
+    position:absolute;
+    bottom: 0;
+    background-image: url("/assets/transition_button.png");
+    height:130px;
+    width: 100px;
+    --ripple-color: transparent;
+    --background-hover: transparent;
+}
