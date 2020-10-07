@@ -9,6 +9,9 @@ RUN yarn
 ENV PATH="./node_modules/.bin:$PATH"
 
 COPY . ./
+
+EXPOSE 8000
+
 RUN yarn build
 
 CMD yarn start

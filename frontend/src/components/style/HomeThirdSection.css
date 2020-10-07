@@ -6,42 +6,35 @@
 
 .headerBlurbThird{
     background-color: rgb(244, 107, 19);
-    width: 40%;
-    right: 10%;
-    position: absolute;
-    top: 23%;
-    height: 13%;
 }
 
 .loginHeader{
-    padding-top: 15px;
     margin: auto;
     color: white;
-    font-size: 60px;
+    font-size: 300%;
+}
+
+.loginHeaderResponsive{
+    margin: auto;
+    color: white;
+    font-size: 110%;
 }
 
 .challengeBlurbItemThird{
     background-color: rgb(244, 107, 19);
     width: 30%;
-    right: 15%;
-    position: absolute;
-    top: 40%;
+    display:block;
 }
 
 .challengeBlurbItemThirdTwo{
     background-color: rgb(244, 107, 19);
     width: 30%;
-    right: 15%;
-    position: absolute;
-    top: 50%;
+    display:block;
 }
 
 .challengeBlurbItemThirdThree{
-    background-color: rgb(244, 107, 19);
-    width: 30%;
-    right: 15%;
-    position: absolute;
-    top: 60%;
+    width: 70%;
+    display:block;
 }
 
 .email{

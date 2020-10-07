@@ -1,6 +1,7 @@
 import mongoose, { Document, Schema, HookNextFunction } from 'mongoose';
 import TaskList from './TaskList'
 import bcrypt from 'bcryptjs';
+import Task from './Task'
 
 const HASH_ROUNDS = 10;
 
@@ -9,11 +10,12 @@ export interface IUser extends Document {
     lastName: string;
     email: string;
     password: string;
-    ranking: number;
     taskListId: number;
+    totalPoints: number;
+    totalBonus: number;
     updatedDate: Date;
     validatePassword(password: string): boolean;
-    updatePoints(taskListId: number, points: number): object;
+    updatePoints(taskListId: number, points: number, bonus: number): object;
 }
 
 const userSchema = new Schema({
@@ -22,7 +24,8 @@ const userSchema = new Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     totalPoints: { type: Number },
-    taskListId: { type: Number, required: true },
+    totalBonus: {type: Number},
+    taskListId: { type: Number },
     updatedDate: { type: Date }
 });
 
@@ -36,13 +39,21 @@ userSchema.pre('save', async function (next: HookNextFunction) {
     try {
         const salt = await bcrypt.genSalt(HASH_ROUNDS);
         thisObj.password = await bcrypt.hash(thisObj.password, salt);
-        thisObj.taskListId = await TaskList.countDocuments()+1
-
-        var taskList = new TaskList({
-            taskListId: thisObj.taskListId
-        });
-        
+        var taskList = new TaskList();
         await taskList.save()
+
+        var newTasks = await Task.find({}).select('taskId -_id')
+
+        taskList.collection.findOneAndUpdate(
+            { taskListId: taskList.taskListId}, 
+            { $push: {unfinishedTasks: newTasks} },
+           function (error, success) {
+                 if (error) {
+                     console.log(error);
+                 }
+             });
+
+        thisObj.taskListId = taskList.taskListId
 
         return next();
     } catch (e) {
@@ -54,13 +65,24 @@ userSchema.methods.validatePassword = async function (pass: string) {
     return bcrypt.compare(pass, this.password);
 };
 
-userSchema.methods.updatePoints = async function (taskListId:number, points: number) {
+userSchema.methods.updatePoints = async function (taskListId:any, points: any, bonus: any) {
     try {
-        var doc = await this.findOneAndUpdate({taskListId: taskListId}, {points: points, updatedDate: new Date(Date.now())});
-        
+        const thisObj = this as IUser;
+        var doc = await thisObj.collection.findOneAndUpdate(
+            {
+                taskListId: taskListId
+            }, 
+            {
+                $set: {
+                    totalPoints: points,
+                    totalBonus: bonus, 
+                    updatedDate: new Date(Date.now())
+                }
+            });
+
         return doc
     } catch (e) {
-        return {"error":"Update points failed"}
+        return {"error":e.toString()}
     }
 };
 

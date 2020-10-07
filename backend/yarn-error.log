@@ -1,11 +1,11 @@
 Arguments: 
-  /home/ajail/.nvm/versions/node/v13.11.0/bin/node /usr/share/yarn/bin/yarn.js add @types/path
+  /home/ajail/.nvm/versions/node/v13.11.0/bin/node /usr/share/yarn/bin/yarn.js
 
 PATH: 
-  /home/ajail/.nvm/versions/node/v13.11.0/bin:/usr/bin:/usr/local/cuda-10.0/bin:/home/ajail/.cargo/bin:/home/ajail/.cargo/bin:/home/ajail/.rvm/gems/ruby-2.6.3/bin:/home/ajail/.rvm/gems/ruby-2.6.3@global/bin:/home/ajail/.rvm/rubies/ruby-2.6.3/bin:/home/ajail/.local/bin:/home/ajail/.nvm/versions/node/v13.11.0/bin:/usr/bin:/usr/local/cuda-10.0/bin:/opt/gradle/gradle-5.0/bin:/home/ajail/.cargo/bin:/home/ajail/.rvm/gems/ruby-2.6.3/bin:/home/ajail/.rvm/gems/ruby-2.6.3@global/bin:/home/ajail/.rvm/rubies/ruby-2.6.3/bin:/home/ajail/.local/bin:/opt/gradle/gradle-5.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.config/composer/vendor/bin:/snap/bin:/home/ajail/.dotnet/tools:/home/ajail/.rvm/bin:/home/ajail/.dotnet/tools:/home/ajail/.rvm/bin:/home/ajail/.pulumi/bin:/home/ajail/.rvm/bin:/home/ajail/.rvm/bin:/home/ajail/.pulumi/bin
+  /home/ajail/.nvm/versions/node/v13.11.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 
 Yarn version: 
-  1.12.3
+  1.22.5
 
 Node version: 
   13.11.0
@@ -14,17 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2fpath: Not found
-      at Request.params.callback [as _callback] (/usr/share/yarn/lib/cli.js:65894:18)
-      at Request.self.callback (/usr/share/yarn/lib/cli.js:129018:22)
-      at Request.emit (events.js:315:20)
-      at Request.<anonymous> (/usr/share/yarn/lib/cli.js:129990:10)
-      at Request.emit (events.js:315:20)
-      at IncomingMessage.<anonymous> (/usr/share/yarn/lib/cli.js:129912:12)
-      at Object.onceWrapper (events.js:421:28)
-      at IncomingMessage.emit (events.js:327:22)
-      at endReadableNT (_stream_readable.js:1201:12)
-      at processTicksAndRejections (internal/process/task_queues.js:84:21)
+  Error: ENOENT: no such file or directory, open '/home/ajail/.cache/yarn/v6/npm-safer-buffer-2.1.2-44fa161b0187b9549dd84bb91802f9bd8385cd6a-integrity/node_modules/safer-buffer/.yarn-metadata.json'
 
 npm manifest: 
   {
@@ -33,7 +23,7 @@ npm manifest:
     "description": "",
     "main": "index.js",
     "scripts": {
-      "start": "nodemon index.ts",
+      "start": "node build/index.js",
       "test": "echo \"Error: no test specified\" && exit 1",
       "build": "tsc --project ./"
     },

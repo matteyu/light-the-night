@@ -18,3 +18,17 @@
 .sixthSlideBackground{
     background-color: rgb(30, 21, 37);
 }
+
+ion-grid{
+    border: double;
+    color: transparent;
+    /* color: red; */
+}
+
+ion-row{
+    border:double;
+}
+
+ion-col{
+    border:double;
+}

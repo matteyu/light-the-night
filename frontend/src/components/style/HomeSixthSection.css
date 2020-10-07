@@ -34,10 +34,8 @@
 }
 
 .challengeHeaderFour{
-    padding-top: 20px;
-    margin-left: 20px;
     color: rgb(246, 194, 47);
-    font-size: 60px;
+    font-size: 6vh;
     font-weight: 700;
 }
 
