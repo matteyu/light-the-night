@@ -271,7 +271,7 @@ class Home extends Component<{}, ComponentState> {
                         }
                         
                     </IonSlide>
-                    <IonSlide className="thirdSlideBackground">
+                    {/* <IonSlide className="thirdSlideBackground">
                         <HomeThirdSection
                             {...this.state}
                             handleEmailChange={this.handleEmailChange}
@@ -288,7 +288,7 @@ class Home extends Component<{}, ComponentState> {
                             :
                             ''
                         }
-                    </IonSlide>
+                    </IonSlide> */}
                     <IonSlide className="fourthSlideBackground">
                         <HomeFourthSection/>
                         {

@@ -8,7 +8,12 @@ class HomeSixthSection extends Component {
         pics: []
     }
     getAllPics = () => {
-        API.get("https://www.instagram.com/ialtnchallenge/?__a=1").then((res: any) => {
+        API.post("https://www.instagram.com/ialtnchallenge/channel/?__a=1", {
+            headers: {
+              'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36'
+            }
+          })
+        .then((res: any) => {
             if(res.data.graphql !== undefined){
                 var galleryPics = res.data.graphql.user.edge_owner_to_timeline_media.edges.map((obj: any) => {
                     return obj.node.display_url
@@ -16,6 +21,7 @@ class HomeSixthSection extends Component {
                 this.setState({pics: galleryPics})
             } 
         })
+        .catch((err) => console.log(err))
     }
 
     componentDidMount(){

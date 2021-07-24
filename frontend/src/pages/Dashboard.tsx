@@ -21,7 +21,6 @@ import {
 import React, { Component } from 'react';
 import { school, star, hammer, people } from 'ionicons/icons';
 import './style/Dashboard.css';
-import '../components/Slides'
 import './style/Dashboard.css'
 import * as LOGIN from "../api/login"
 import * as API from "../api/common"

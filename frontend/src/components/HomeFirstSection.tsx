@@ -41,12 +41,12 @@ class HomeFirstSection extends Component {
                         </IonCol>
                         <IonCol>
 
-                                <IonText
+                                {/* <IonText
                                     className="firstSectionHeaderActionsLogin"
                                     onClick={() => this.handleSlideToLogin()}
                                 >
                                     Login
-                                </IonText>
+                                </IonText> */}
                                 <IonText
                                     className="firstSectionHeaderActionsChallenge"
                                     onClick={() => this.handleSlideToChallenge()}
